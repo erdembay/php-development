@@ -123,6 +123,32 @@ services:
       - "8080:80"
     networks:
       - backend
+  redis:
+    image: arm64v8/redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis/:/data
+    networks:
+      - backend
+  redisui:
+    image: patrikx3/p3x-redis-ui:latest
+    ports:
+      - "7843:7843"
+    volumes:
+      - ./p3x-redis-ui-settings:/settings
+    networks:
+      - backend
+  elastic:
+    image: elasticsearch:7.17.1
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - discovery.type=single-node
+      - elastic_container=true
+    networks:
+      - backend
 networks:
   backend:
     driver: bridge

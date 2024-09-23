@@ -2,3 +2,5 @@
 Docker/mysql/*
 Projects/*
 Docker/nginx/default.conf
+Docker/redis/*
+Docker/p3x-redis-ui/*

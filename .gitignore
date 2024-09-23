@@ -1,4 +1,4 @@
 .DS_Store
 Docker/mysql/*
 Projects/*
-Docker/nginx
+Docker/nginx/default.conf
